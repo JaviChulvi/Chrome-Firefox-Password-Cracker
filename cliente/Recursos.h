@@ -20,6 +20,5 @@ public:
 
 	void enviarPost(string info);
 	char* dupcat(const char* s1, ...);
-	char* dupncat(const char* s1, unsigned int n);
 };
 

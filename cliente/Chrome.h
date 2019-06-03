@@ -1,20 +1,8 @@
 #include <iostream>
-#include <Shlwapi.h>
-#include <shlobj.h>
 #include <windows.h>
 #include <string>
-#include <vector>
-#include <cstdio>
 #include <fstream>
-#include <tchar.h>
-
-#pragma comment(lib, "crypt32.lib")
-
-#include <windows.h>
 #include <shlobj.h>
-
-#include <iostream>
-#include <tchar.h>
 
 #include "sqlite3.h"
 

